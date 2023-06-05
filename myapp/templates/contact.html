@@ -2,21 +2,67 @@
 
 {% block content %}
 <div class="container">
+  
 <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Name</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
-  </div>
-  <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Email</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
-  </div>
-  <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Phone no</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Phone no">
-  </div>
-  <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Address</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Address">
+  <form method="POST" action="{% url 'conatact' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_office_location">Office Location:</label><br>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" name="office_location" value="Main" id="id_office_location_main">
+        <label class="form-check-label" for="id_office_location_main">Main - 1040 SW 2nd Avenue, Ocala, FL</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" name="office_location" value="West" id="id_office_location_west">
+        <label class="form-check-label" for="id_office_location_west">West - 10230 SW 86th Circle, Ocala, FL</label>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="id_doctor">Doctor:</label><br>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" name="doctor" value="Ram Vasudevan, MD, FACC, FACP" id="id_doctor_1">
+        <label class="form-check-label" for="id_doctor_1">Ram Vasudevan, MD, FACC, FACP</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" name="doctor" value="Punwattie Ramnaraine, FNP-BC" id="id_doctor_2">
+        <label class="form-check-label" for="id_doctor_2">Punwattie Ramnaraine, FNP-BC</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" name="doctor" value="Alceha Mayne-Thomas, ARNP" id="id_doctor_3">
+        <label class="form-check-label" for="id_doctor_3">Alceha Mayne-Thomas, ARNP</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" name="doctor" value="Junaina Dominic, PA-C" id="id_doctor_4">
+        <label class="form-check-label" for="id_doctor_4">Junaina Dominic, PA-C</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" name="doctor" value="Emily Hawkins, APRN, NP-C" id="id_doctor_5">
+        <label class="form-check-label" for="id_doctor_5">Emily Hawkins, APRN, NP-C</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="id_full_name">Full Name:</label>
+      <input type="text" class="form-control" name="full_name" id="id_full_name">
+    </div>
+  
+    <div class="form-group">
+      <label for="id_email">Email:</label>
+      <input type="email" class="form-control" name="email" id="id_email">
+    </div>
+  
+    <div class="form-group">
+      <label for="id_phone_number">Phone Number:</label>
+      <input type="tel" class="form-control" name="phone_number" id="id_phone_number">
+    </div>
+  
+    <div class="form-group">
+      <label for="id_message">Message:</label>
+      <textarea class="form-control" name="message" id="id_message"></textarea>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
   </div>
 </div>
 {% endblock %}
